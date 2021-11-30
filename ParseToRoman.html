@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BMB - Algorithmie - ParseToRoman</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />  
+</head>
+<body>
+    <main class="container">
+        <section class="main">
+            <h1 class="center">Chiffres romains</h1>
+            <p class="center">- conversion -</p>
+            <p>
+                Consigne :<br />
+                Créer une fonction appelé parseToRoman qui, pour un nombre donné, va retourner sa valeur en chiffres romains.<br />
+                On rappelle la valeur des chiffres romains :<br />
+                I=1 V=5 X=10 L=50 C=100 D=500 M=1000<br />
+                On écrit les symboles du plus grand au plus petit et ils peuvent s'additionner mais si il y 
+                4 fois la meme valeur de suite alors on utilise la notion soustractive en retranchant à la valeur supérieure 1<br />
+                Traiter des nombres à partir de 1 (pour l'anecdote les romains ne connaissaient pas le 0)
+            </p>
+            <p>
+                Entrez votre nombre en cliquant sur les chiffres souhaités puis cliquer sur "Convertir". <br />
+                Cliquer sur "Effacer" pour effacer votre nombre
+            </p>
+            <div class=”convertissor-screen”>
+                <p class="center"> Votre nombre :</p>
+                <p id="screen"></p>
+            </div>   
+            <div class=”convertissor-screen”>
+                <p class="center"> Votre nombre en chiffres romains :</p>
+                <p id="resultScreen"></p>
+            </div>   
+            <div id="keyboard">
+                <button type="button" onclick="handleNumber(1)">1</button>
+                <button type="button" onclick="handleNumber(2)">2</button>
+                <button type="button" onclick="handleNumber(3)">3</button>
+                <button type="button" onclick="handleNumber(4)">4</button>
+                <button type="button" onclick="handleNumber(5)">5</button>
+                <button type="button" onclick="handleNumber(6)">6</button>
+                <button type="button" onclick="handleNumber(7)">7</button>
+                <button type="button" onclick="handleNumber(8)">8</button>
+                <button type="button" onclick="handleNumber(9)">9</button>
+                <button type="button" onclick="handleNumber(0)">0</button>
+                <button type="button" onclick="clearData()" class="clear">Effacer</button>
+                <button type="button" onclick="parseToRoman(numberToConvert)" class="submit">Convertir</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="center">Béatrice Moulin Beltrame| <a href="https://github.com/bea14/">Github</a> | <a href="https://www.linkedin.com/in/béatrice-moulin-beltrame">Linkedin</a> | <a href="#">Portfolio</a></p>
+    </footer>
+
+    <script>
+        let numberToConvert = '';
+        let result = '';
+        function handleNumber(data) {
+            numberToConvert = document.getElementById('screen').innerHTML+=data;
+            return numberToConvert;
+        }
+    
+        function parseToRoman(data) {
+            const decimal = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+            const romain = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];            
+            for (let i = 0; i < decimal.length; i++) {
+                while (data  >= decimal[i]){
+                    data -= decimal[i]
+                    result += romain[i]
+                }
+            }
+            document.getElementById('resultScreen').innerHTML=result;
+        }
+        
+        function clearData() {
+            result= '';
+            document.getElementById('screen').innerHTML='';
+            document.getElementById('resultScreen').innerHTML=result;
+        }  
+    </script>
+
+</body>
+  
+</html>

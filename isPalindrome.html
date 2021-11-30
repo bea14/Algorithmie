@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BMB - Algorithmie - Palindrome</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <main class="container">
+        <section class="main">
+            <h1 class="center">Palindrome</h1>
+            <p class="center">- alphabétique -</p>
+            <p class="center">
+                Consignes :<br />
+                Palindrome is a string that’s spelled the same when read forward and backward. Some palindrome strings are as follows:<br />
+                “nope” spelled backwards is “epon”, so it’s not a palindrome<br />
+                “civic” spelled backwards is also “civic”, so it’s a palindrome<br />
+                “kayak” spelled backwards is also “kayak”, so it’s a palindrome<br />
+                “even” spelled backwards is “neve”, so it’s not a palindrome
+            </p>
+                <p>
+                    Entrez votre mot en cliquant sur les lettres puis cliquez sur "Vérifier"<br />
+                    Pour effacer le mot, cliquez sur "Effacer"
+                </p>
+            <div class=”convertissor-screen”>
+                <p class="center">
+                    <label class="center"> Votre mot/phrase :</label>
+                    <input type="text" id="screen" name="string" value="">
+                </p>
+            </div>   
+            <div class=”convertissor-screen”>
+                <p class="center"> La réponse :</p>
+                <p id="resultScreen"></p>
+            </div> 
+            <div id="keyboard">                
+                <button type="button" onclick="clearData()" class="clear">Effacer</button>
+                <button type="button" onclick="isPalindrome()" class="submit">Vérifier</button>
+            </div>  
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="center">Béatrice Moulin Beltrame| <a href="https://github.com/bea14/">Github</a> | <a href="https://www.linkedin.com/in/béatrice-moulin-beltrame">Linkedin</a> | <a href="#">Portfolio</a></p>
+    </footer>
+
+    <script>  
+        function isPalindrome(){            
+            str = document.getElementById("screen").value;
+            str = str.toLowerCase();
+            //split permet de convertir un string en array
+            //reverse permet d'inverser un tableau
+            //join permet de convertir un tableau n string
+            let strReverse = str.split("").reverse().join("");
+            if (str === strReverse) {
+                result = "Cette phrase est un palindrome"
+                //console.log("Cette phrase est un palindrome");
+            } else {
+                result = "Cette phrase n'est pas un palindrome";
+                //console.log("Cette phrase n'est pas un palindrome");
+            }       
+            document.getElementById('resultScreen').innerHTML=result;
+        }
+    
+        function clearData() {
+            result= '';
+            document.getElementById('screen').innerHTML='';
+            document.getElementById('screen').value='';
+            document.getElementById('resultScreen').innerHTML='';
+        }      
+    </script>
+
+</body>
+  
+</html>

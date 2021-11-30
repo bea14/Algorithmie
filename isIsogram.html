@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BMB - Algorithmie - Isogramme</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <main class="container">
+        <section class="main">
+            <h1 class="center">Isogramme</h1>
+            <p class="center">- alphabétique -</p>
+            <p class="center">
+                Consignes :<br />
+                An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string 
+                that contains only letters is an isogram. Assume the empty string is an isogram. 
+                Ignore letter case.<br />
+                isIsogram("Dermatoglyphics") == true<br />
+                isIsogram("aba") == false<br />
+                isIsogram("moOse") == false // -- ignore letter case</p>
+                <p>
+                    Entrez votre mot en cliquant sur les lettres puis cliquez sur "Convertir".<br />
+                    Pour effacer le mot, cliquez sur "Effacer"
+                </p>
+            <div class=”convertissor-screen”>
+                <p class="center">Votre mot :</p>
+                <p id="screen"></p>
+            </div>   
+            <div class=”convertissor-screen”>
+                <p class="center"> La réponse :</p>
+                <p id="resultScreen"></p>
+            </div>   
+            <div id="keyboard">
+                <button type="button" onclick="handleString('A')">A</button>
+                <button type="button" onclick="handleString('B')">B</button>
+                <button type="button" onclick="handleString('C')">C</button>
+                <button type="button" onclick="handleString('D')">D</button>
+                <button type="button" onclick="handleString('E')">E</button>
+                <button type="button" onclick="handleString('F')">F</button>
+                <button type="button" onclick="handleString('G')">G</button>
+                <button type="button" onclick="handleString('H')">H</button>
+                <button type="button" onclick="handleString('I')">I</button>
+                <button type="button" onclick="handleString('J')">J</button>
+                <button type="button" onclick="handleString('K')">K</button>
+                <button type="button" onclick="handleString('L')">L</button>
+                <button type="button" onclick="handleString('M')">M</button>
+                <button type="button" onclick="handleString('N')">N</button>
+                <button type="button" onclick="handleString('O')">O</button>
+                <button type="button" onclick="handleString('P')">P</button>
+                <button type="button" onclick="handleString('Q')">Q</button>
+                <button type="button" onclick="handleString('R')">R</button>
+                <button type="button" onclick="handleString('S')">S</button>
+                <button type="button" onclick="handleString('T')">T</button>
+                <button type="button" onclick="handleString('U')">U</button>
+                <button type="button" onclick="handleString('V')">V</button>
+                <button type="button" onclick="handleString('W')">W</button>
+                <button type="button" onclick="handleString('X')">X</button>
+                <button type="button" onclick="handleString('Y')">Y</button>
+                <button type="button" onclick="handleString('Z')">Z</button>
+                <button type="button" onclick="clearData()" class="clear">Effacer</button>
+                <button type="button" onclick="isIsogram(stringToConvert)" class="submit">Vérifier</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="center">Béatrice Moulin Beltrame| <a href="https://github.com/bea14/">Github</a> | <a href="https://www.linkedin.com/in/béatrice-moulin-beltrame">Linkedin</a> | <a href="#">Portfolio</a></p>
+    </footer>
+
+    <script>    
+        let stringToConvert = '';
+        
+        function handleString(data) {
+            stringToConvert = document.getElementById('screen').innerHTML+=data;
+            return stringToConvert;
+        }
+    
+        function isIsogram(str){
+            let result = true;
+            let resultat="";
+            str = str.toLowerCase() 
+            if (str.length == 0) {result = true}
+            for (let i = 0; i < str.length; i++) {
+                for (let j = i+1; j < str.length; j++){
+                    if (str[i] === str[j]) {
+                        result = false
+                    }
+                }
+            } 
+            if (result == false) {resultat ="Ce mot n'est pas un isogramme (plusieurs lettres identiques)"}
+            else {resultat ="Ce mot est un isogramme"}
+            document.getElementById('resultScreen').innerHTML=resultat;
+        }
+    
+        function clearData() {
+            result= '';
+            document.getElementById('screen').innerHTML='';
+            document.getElementById('resultScreen').innerHTML=result;
+        }      
+    </script>
+
+</body>
+  
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BMB - Algorithmie - Seconds To Minutes</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />  
+</head>
+<body>
+    <main class="container">
+        <section class="main">
+            <h1 class="center">Convertir des secondes en minutes</h1>
+            <p class="center">- conversion -</p>
+            <p>
+                Consigne :<br />
+                Ecrire une fonction pour convertir un nombre de secondes en nombre de minutes
+            </p>
+            <p>
+                Entrez votre nombre en cliquant sur les chiffres souhaités puis cliquer sur "Convertir". <br />
+                Cliquer sur "Effacer" pour effacer votre nombre
+            </p>
+            <div class=”convertissor-screen”>
+                <p class="center"> Votre nombre de secondes:</p>
+                <p id="screen"></p>
+            </div>   
+            <div class=”convertissor-screen”>
+                <p class="center"> Votre nombre en minutes :</p>
+                <p id="resultScreen"></p>
+            </div>   
+            <div id="keyboard">
+                <button type="button" onclick="handleNumber(1)">1</button>
+                <button type="button" onclick="handleNumber(2)">2</button>
+                <button type="button" onclick="handleNumber(3)">3</button>
+                <button type="button" onclick="handleNumber(4)">4</button>
+                <button type="button" onclick="handleNumber(5)">5</button>
+                <button type="button" onclick="handleNumber(6)">6</button>
+                <button type="button" onclick="handleNumber(7)">7</button>
+                <button type="button" onclick="handleNumber(8)">8</button>
+                <button type="button" onclick="handleNumber(9)">9</button>
+                <button type="button" onclick="handleNumber(0)">0</button>
+                <button type="button" onclick="clearData()" class="clear">Effacer</button>
+                <button type="button" onclick="convertToMinutes(time)" class="submit">Convertir</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="center">Béatrice Moulin Beltrame| <a href="https://github.com/bea14/">Github</a> | <a href="https://www.linkedin.com/in/béatrice-moulin-beltrame">Linkedin</a> | <a href="#">Portfolio</a></p>
+    </footer>
+
+    <script>
+        let time = '';
+        let result = '';
+        function handleNumber(data) {
+            time = document.getElementById('screen').innerHTML+=data;
+            return time;
+        }
+    
+        function convertToMinutes(time) {
+            let minutes = 0
+            if (time === undefined){
+                time = 0
+            }
+            minutes = Math.floor(time / 60);
+            secondes = time % 60;
+            result = minutes + " minutes " + secondes + " secondes";
+            document.getElementById('resultScreen').innerHTML=result;
+        }
+        
+        function clearData() {
+            result= '';
+            document.getElementById('screen').innerHTML='';
+            document.getElementById('resultScreen').innerHTML=result;
+        }  
+    </script>
+
+</body>
+  
+</html>

@@ -1,0 +1,51 @@
+html{
+    box-sizing: border-box;
+}
+
+body {    
+    background-color: #000;
+    color: #fff;
+}
+
+.main {
+    width: 375px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    margin : 2rem auto;
+}
+
+.center{
+    text-align: center
+}
+
+#screen, #resultScreen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color:#fff;
+    color: #000
+}
+
+#keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+button{
+    padding: 0.5rem;
+}
+
+.clear, .submit {
+    background-color:#fff;
+    width: 100px; 
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+input {margin: 0 auto;}

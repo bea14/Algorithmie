@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BMB - Algorithmie - Bissextile</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />  
+</head>
+<body>
+    <main class="container">
+        <section class="main">
+            <h1 class="center">Bissextile</h1>
+            <p class="center">- numérique -</p>
+            <p class="center">
+                Consignes :<br />
+                Afin de jouer avec les opérateurs, et notamment l'opérateur modulo, voici un exercice 
+                assez classique : déterminer si une année est bissextile.<br />
+                Pour rappel, une année est bissextile si elle est divisible par 4 sans être divisible 
+                par 100 ou si elle est divisible par 400<br />
+                Pour second rappel, l'opérateur modulo (%) permet d'obtenir le reste d'une division. Si 
+                le reste vaut 0, c'est que la division est complète : if (8 % 2) { alert("8 est divisible par 2"): }.
+            </p>
+            <p class="center">
+                Entrez l'année en cliquant sur les chiffres puis cliquez sur "Vérifier"<br />
+                Pour effacer votre entrée, cliquez sur "Effacer"
+            </p>
+            <div class=”convertissor-screen”>
+                <p class="center">Votre année :</p>
+                <p id="screen"></p>
+            </div>   
+            <div class=”convertissor-screen”>
+                <p class="center">Réponse :</p>
+                <p id="resultScreen"></p>
+            </div>   
+            <div id="keyboard">
+                <button type="button" onclick="handleNumber(1)">1</button>
+                <button type="button" onclick="handleNumber(2)">2</button>
+                <button type="button" onclick="handleNumber(3)">3</button>
+                <button type="button" onclick="handleNumber(4)">4</button>
+                <button type="button" onclick="handleNumber(5)">5</button>
+                <button type="button" onclick="handleNumber(6)">6</button>
+                <button type="button" onclick="handleNumber(7)">7</button>
+                <button type="button" onclick="handleNumber(8)">8</button>
+                <button type="button" onclick="handleNumber(9)">9</button>
+                <button type="button" onclick="handleNumber(0)">0</button>
+                <button type="button" onclick="clearData()" class="clear">Effacer</button>
+                <button type="button" onclick="isBissextile(yearToCheck)" class="submit">Vérifier</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="center">Béatrice Moulin Beltrame| <a href="https://github.com/bea14/">Github</a> | <a href="https://www.linkedin.com/in/béatrice-moulin-beltrame">Linkedin</a> | <a href="#">Portfolio</a></p>
+    </footer>
+
+    <script>
+        let yearToCheck = '';
+        let result = '';
+        function handleNumber(data) {
+          yearToCheck = document.getElementById('screen').innerHTML+=data;
+          return yearToCheck;
+        }
+      
+        function isBissextile(year) {
+            if (year % 4 == 0 && year % 100 != 0) {
+                result = "Cette année est bissextile !"
+            } else if (year % 400 == 0)  {
+                result = "Cette année est bissextile !"
+            } else  {
+                result = "Cette année n'est pas bissextile !"
+            } 
+            document.getElementById('resultScreen').innerHTML=result;
+        }
+
+        function clearData() {
+          result= '';
+          document.getElementById('screen').innerHTML='';
+          document.getElementById('resultScreen').innerHTML=result;
+        }    
+    </script>
+  
+
+</body>
+  
+</html>

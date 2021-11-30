@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BMB - Algorithmie - Includes</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <main class="container">
+        <section class="main">
+            <h1 class="center">Includes</h1>
+            <p class="center">- alphanulérique -</p>
+            <p class="center">
+                Consignes :<br />
+                Eliminer les nombres et ne garder que les lettres <br />
+                idée de résolution : <br />
+                - commencer par lire la ligne <br />
+                - faire une fonction qui détermine si la valeur lue par la fonction est une lettre ou un nombre<br />
+                - mettre une condition : Si une lettre afficher la lettre et sinon ne rien afficher<br />
+                H2a3m12z13a4i O45t67a78l8a -> Hamzai Otala<br />
+                H12a12m12z12a12i m12o12c12hakhar -> Hamzai mochakhar
+            </p>
+            <div class=”convertissor-screen”>
+                <p class="center">
+                    <label class="center"> Votre mot/phrase :</label>
+                    <input type="text" id="screen" name="string" value="">
+                </p>
+            </div>   
+            <div class=”convertissor-screen”>                
+                <p class="center">Votre mot/phrase nettoyé(e) des chiffres :</p>
+                <p id="resultScreen"></p>
+            </div>   
+            <div id="keyboard">
+                
+                <button type="button" onclick="clearData()" class="clear">Effacer</button>
+                <button type="button" onclick="includes()" class="submit">Lancer</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="center">Béatrice Moulin Beltrame| <a href="https://github.com/bea14/">Github</a> | <a href="https://www.linkedin.com/in/béatrice-moulin-beltrame">Linkedin</a> | <a href="#">Portfolio</a></p>
+    </footer>
+
+    <script>    
+        function includes() {
+            string = document.getElementById("screen").value;
+            let result = ""
+            let lettre=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+            for (let i = 0; i < string.length; i++) {
+                for (let j = 0; j < lettre.length; j++){
+                    if (string[i].includes(lettre[j]) || string[i].includes(" ")) {
+                        result += string[i]
+                    }
+                }
+                document.getElementById('resultScreen').innerHTML=result;
+            }
+        }
+        function clearData() {
+            result= '';
+            document.getElementById('screen').innerHTML='';
+            document.getElementById('screen').value='';
+            document.getElementById('resultScreen').innerHTML='';
+        }      
+    </script>
+
+</body>
+  
+</html>

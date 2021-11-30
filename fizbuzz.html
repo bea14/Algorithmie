@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BMB - Algorithmie - Fizzbuzz</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <main class="container">
+        <section class="main">
+            <h1 class="center">Fizzbuzz</h1>
+            <p class="center">- Numérique -</p>
+            <p class="center">Affiche les chiffres de 1 à 100<br />
+                Si le chiffre est divisible par 3, remplace le chiffre par le mot « fizz ». <br />
+                Si le chiffre est divisible par 5, affiche le mot « buzz ». <br />
+                Si le chiffre est divisible par 3 et 5, affiche le mot « fizzbuzz ». <br />
+                Sinon fait simplement apparaitre le chiffre.
+            </p>
+            <div class=”convertissor-screen”>
+                <p id="screen"></p>
+            </div>   
+            <div class=”convertissor-screen”>
+                <p id="resultScreen"></p>
+            </div>   
+            <div id="keyboard">                
+                <button type="button" onclick="clearData()" class="clear">Clear</button>
+                <button type="button" onclick="fizzbuzz()" class="submit">Lancer</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="center">Béatrice Moulin Beltrame| <a href="https://github.com/bea14/">Github</a> | <a href="https://www.linkedin.com/in/béatrice-moulin-beltrame">Linkedin</a> | <a href="#">Portfolio</a></p>
+    </footer>
+
+    <script>   
+        function fizzbuzz() {
+            let result = ""
+            for (let i = 1; i <=100; i++) {
+                if (i % 5 == 0 && i % 3 == 0){
+                    result = "fizzbuzz"
+                    document.getElementById('resultScreen').innerHTML+=result+'<br>';
+                } else if (i % 5 == 0){
+                    result = "buzz"
+                    document.getElementById('resultScreen').innerHTML+=result+'<br>';
+                } else if (i % 3 == 0){
+                    result = "fizz"
+                    document.getElementById('resultScreen').innerHTML+=result+'<br>';
+                } else {result = i
+                document.getElementById('resultScreen').innerHTML+=result+'<br>'}
+            }
+        }
+        function clearData() {
+            result= '';
+            document.getElementById('screen').innerHTML='';
+            document.getElementById('resultScreen').innerHTML=result;
+        }      
+    </script>
+</body>
+  
+</html>

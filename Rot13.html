@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BMB - Algorithmie - Rot13</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />  
+
+</head>
+<body>
+    <main class="container">
+        <section class="main">
+            <h1 class="center">ROT13</h1>
+            <p class="center">- conversion -</p>
+            <p class="center">
+                Convertir un mot en ROT13 = écrire ce mot en décalant toutes les lettres de 13 (A devient N, etc)<br />
+                Entrez votre mot en cliquant sur les lettres puis effectuez la conversion
+                en cliquant sur "Convertir".<br />
+                Pour effacer toutes les lettres, cliquer sur "Effacer"
+            </p>
+            <div class=”convertissor-screen”>
+                <p class="center">Votre mot : </p>
+                <p id="screen"></p>
+            </div>   
+            <div class=”convertissor-screen”>                
+                <p class="center">Votre mot transformmé ROT13: </p>
+                <p id="resultScreen"></p>
+            </div>   
+            <div id="keyboard">
+                <button type="button" onclick="handleString('A')">A</button>
+                <button type="button" onclick="handleString('B')">B</button>
+                <button type="button" onclick="handleString('C')">C</button>
+                <button type="button" onclick="handleString('D')">D</button>
+                <button type="button" onclick="handleString('E')">E</button>
+                <button type="button" onclick="handleString('F')">F</button>
+                <button type="button" onclick="handleString('G')">G</button>
+                <button type="button" onclick="handleString('H')">H</button>
+                <button type="button" onclick="handleString('I')">I</button>
+                <button type="button" onclick="handleString('J')">J</button>
+                <button type="button" onclick="handleString('K')">K</button>
+                <button type="button" onclick="handleString('L')">L</button>
+                <button type="button" onclick="handleString('M')">M</button>
+                <button type="button" onclick="handleString('N')">N</button>
+                <button type="button" onclick="handleString('O')">O</button>
+                <button type="button" onclick="handleString('P')">P</button>
+                <button type="button" onclick="handleString('Q')">Q</button>
+                <button type="button" onclick="handleString('R')">R</button>
+                <button type="button" onclick="handleString('S')">S</button>
+                <button type="button" onclick="handleString('T')">T</button>
+                <button type="button" onclick="handleString('U')">U</button>
+                <button type="button" onclick="handleString('V')">V</button>
+                <button type="button" onclick="handleString('W')">W</button>
+                <button type="button" onclick="handleString('X')">X</button>
+                <button type="button" onclick="handleString('Y')">Y</button>
+                <button type="button" onclick="handleString('Z')">Z</button>
+                <button type="button" onclick="clearData()" class="clear">Effacer</button>
+                <button type="button" onclick="convertToRot13(stringToConvert)" class="submit">Convertir</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="center">Béatrice Moulin Beltrame| <a href="https://github.com/bea14/">Github</a> | <a href="https://www.linkedin.com/in/béatrice-moulin-beltrame">Linkedin</a> | <a href="#">Portfolio</a></p>
+    </footer>
+
+    <script>
+        let result = '';
+        let stringToConvert = '';
+        
+        function handleString(data) {
+            stringToConvert = document.getElementById('screen').innerHTML+=data;
+            return stringToConvert;
+        }
+    
+        function convertToRot13(data) {
+            //on enlève les '' et on transforme en minuscules
+            const newString = data.toLowerCase()
+            // pour chaque caractère, on le transforme en son code ascii et ensuite on ajoute ou enlève 13
+            //on retransforme ensuite en lettre arabe
+            for (let i = 0; i < data.length; i++) {
+                let code = data.charCodeAt(i)
+                if (code < 65 || code > 90) {
+                    result += String.fromCharCode(code)
+                } else if (code < 78) {
+                    result += String.fromCharCode(code+13)
+                } else result += String.fromCharCode(code-13)
+                    document.getElementById('resultScreen').innerHTML=result;
+            }
+        }
+        
+        function clearData() {
+            result= '';
+            document.getElementById('screen').innerHTML='';
+            document.getElementById('resultScreen').innerHTML=result;
+        }  
+    </script>
+</body>
+  
+</html>
