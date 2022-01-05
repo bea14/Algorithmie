@@ -7,6 +7,10 @@ body {
     color: #fff;
 }
 
+.main2 {
+    margin : 2rem auto;
+}
+
 .main {
     width: 375px;
     border: 2px solid #fff;
